@@ -7,8 +7,6 @@ let apple, applex = (Math.floor(Math.random() * 25))*20, appley = (Math.floor(Ma
 function main() {
 	player[0] = new Image(20, 20, "#000fff", 240,0);
 	apple = new Image(20, 20, "#e51010", (Math.floor(Math.random() * 25))*20, (Math.floor(Math.random() * 25))*20);
-	console.log(apple.x);
-	console.log(apple.y);
 	interval = setInterval(Loop, 100);
 }
 
