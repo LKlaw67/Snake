@@ -7,7 +7,7 @@ let apple, applex = (Math.floor(Math.random() * 25))*20, appley = (Math.floor(Ma
 function main() {
 	player[0] = new Image(20, 20, "#000fff", 240,0);
 	apple = new Image(20, 20, "#e51010", (Math.floor(Math.random() * 25))*20, (Math.floor(Math.random() * 25))*20);
-	interval = setInterval(Loop, 100);
+	setInterval(Loop, 100);
 }
 
 function Loop() {
@@ -19,17 +19,6 @@ function Loop() {
 		if(player[0].x === player[i].x && player[0].y === player[i].y) {
 			length=0;
 		}
-	}
-	
-	if(player[0].x >= canvas.width) {
-		player[0].x = 0-player[0].width;
-	} else if(player[0].x+player[0].width <= 0) {
-		player[0].x = canvas.width;
-	}
-	if(player[0].y >= canvas.height) {
-		player[0].y = 0-player[0].height;
-	} else if(player[0].y+player[0].height <= 0) {
-		player[0].y = canvas.height;
 	}
 	
 	if(player[0].x === apple.x && player[0].y === apple.y) {
@@ -61,6 +50,16 @@ function Loop() {
 	}
 	if(player[0].move[3] === true) {
 		player[0].x += speed;
+	}
+	if(player[0].x >= canvas.width) {
+		player[0].x = 0;
+	} else if(player[0].x+player[0].width <= 0) {
+		player[0].x = canvas.width-player[0].width;
+	}
+	if(player[0].y >= canvas.height) {
+		player[0].y = 0;
+	} else if(player[0].y+player[0].height <= 0) {
+		player[0].y = canvas.height-player[0].height;
 	}
 	player[0].Update();
 }
